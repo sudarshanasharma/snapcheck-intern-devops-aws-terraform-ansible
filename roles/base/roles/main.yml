@@ -1,0 +1,4 @@
+---
+- name: base role applied
+  debug:
+    msg: 'applying the base role'
