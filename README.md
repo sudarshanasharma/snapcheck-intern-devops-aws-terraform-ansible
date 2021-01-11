@@ -1,0 +1,1 @@
+# snapcheck-intern-devops-aws-terraform-ansible
