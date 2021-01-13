@@ -1,0 +1,7 @@
+---
+- name: install
+  hosts: all
+  roles:
+    - mongodb
+    - securedb
+    - test_db

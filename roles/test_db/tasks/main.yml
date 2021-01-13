@@ -1,0 +1,5 @@
+---
+- name: "Create Test_DB"
+  shell: |
+      mongo --eval="db.getSiblingDB('Test_DB').createCollection('empty')"
+    
