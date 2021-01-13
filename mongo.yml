@@ -1,6 +1,8 @@
 ---
 - name: install
+  become: true
   hosts: all
+  user: ubuntu
   roles:
     - mongodb
     - securedb

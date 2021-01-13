@@ -1,2 +1,2 @@
-[mongo-test]
-34.219.38.209 ansible_user=ubuntu ansible_python_interpreter="/usr/bin/env python3"
+[all]
+52.40.23.96 ansible_user=ubuntu ansible_python_interpreter="/usr/bin/env python3"

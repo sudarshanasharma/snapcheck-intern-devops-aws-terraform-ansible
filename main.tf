@@ -1,6 +1,6 @@
 provider "aws" {
-    access_key = "${var.option_1_access_key}"
-    secret_key = "${var.option_2_secret_key}"
+    access_key = var.option_1_access_key
+    secret_key = var.option_2_secret_key
     region = "us-west-2"
 }
 
@@ -42,7 +42,7 @@ resource "aws_instance" "MyInstance" {
         Name = "EC2_Instance_Terraform"
     }
     
-    provisioner "remote-exec" {
+     provisioner "remote-exec" {
     # Install Python for Ansible
     #inline = ["sudo dnf -y install python libselinux-python"]
     
@@ -50,11 +50,14 @@ resource "aws_instance" "MyInstance" {
       host = self.public_ip
       type        = "ssh"
       user        = "ubuntu"
-      private_key = "${file("gangamma.pem")}"
+      private_key = file("gangamma.pem")
     }
+    inline = ["echo 'connected!'"]
   }
 
   provisioner "local-exec" {
     command = "ansible-playbook -i inventory --private-key=gangamma.pem -T 600 mongo.yml -vvvv " 
 }
-}
+
+    }
+    

@@ -3,7 +3,6 @@
   become: true
   apt:
     upgrade: "yes"
-    state: fixed
     
 - name: "install dependencies."
   become: true
@@ -17,13 +16,7 @@
   shell: |
    pip3 install pymongo
    
-- name: Create MongoDB root user siteRootAdmin
-  mongodb_user:
-    login_user: "mongodb_admin_user"
-    login_password: "mongodb_admin_password"
-    login_port: "27017"
-    database: "test"
-    name: "mongodb_admin_user"
-    password: "mongodb_admin_password"
-    roles:
-      -  {  db: "admin", role: "readWrite" }
+- name: Create MongoDB user
+  shell: |
+      mongo --eval='db.createUser({ user: "myUserAdmin", pwd: passwordPrompt() ,roles: [ "userAdmin", "readWrite"] })'
+ 
