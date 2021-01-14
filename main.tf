@@ -41,23 +41,12 @@ resource "aws_instance" "MyInstance" {
     tags = {
         Name = "EC2_Instance_Terraform"
     }
-    
-     provisioner "remote-exec" {
-    # Install Python for Ansible
-    #inline = ["sudo dnf -y install python libselinux-python"]
-    
-    connection {
-      host = self.public_ip
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file("gangamma.pem")
-    }
-    inline = ["echo 'connected!'"]
-  }
-
-  provisioner "local-exec" {
-    command = "ansible-playbook -i inventory --private-key=gangamma.pem -T 600 mongo.yml -vvvv " 
 }
 
-    }
+resource "null_resource" "MyInstance" {
+ provisioner "local-exec" {
+    command = "sleep 80; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory --private-key=gangamma.pem mongo.yml" 
+}
+
+}
     

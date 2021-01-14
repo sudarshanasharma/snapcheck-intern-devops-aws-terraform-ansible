@@ -18,5 +18,5 @@
    
 - name: Create MongoDB user
   shell: |
-      mongo --eval='db.createUser({ user: "myUserAdmin", pwd: passwordPrompt() ,roles: [ "userAdmin", "readWrite"] })'
+      mongo --eval='db.createUser({ user: "myUserAdmin", pwd: "mypassword" ,roles: [ "userAdmin", "readWrite"] })'
  

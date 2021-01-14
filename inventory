@@ -1,2 +1,2 @@
 [all]
-52.40.23.96 ansible_user=ubuntu ansible_python_interpreter="/usr/bin/env python3"
+35.164.210.235 ansible_user=ubuntu ansible_python_interpreter="/usr/bin/env python3"
