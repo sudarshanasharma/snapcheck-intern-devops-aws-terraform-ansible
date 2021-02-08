@@ -45,7 +45,7 @@ resource "aws_instance" "MyInstance" {
 
 resource "null_resource" "MyInstance" {
  provisioner "local-exec" {
-    command = "sleep 120; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory --private-key=gangamma.pem mongo.yml" 
+    command = "sleep 60; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory --private-key=gangamma.pem mongo.yml" 
 }
 
 }
