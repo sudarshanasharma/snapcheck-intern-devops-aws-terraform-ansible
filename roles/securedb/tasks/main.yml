@@ -4,6 +4,12 @@
   apt:
     upgrade: "yes"
     
+- name: install aptitude
+  apt: 
+    name: aptitude
+    state: present
+    update_cache: yes
+
 - name: "install dependencies."
   become: true
   apt:
