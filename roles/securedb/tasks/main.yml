@@ -25,7 +25,7 @@
    
 - name: Insert data to 'test' db
   shell: |
-      mongo --eval = 'db.runCommand({ insert: "test",documents: [ { _id: 1, name: "abc123", status: "A" } ] })'
+      mongo --eval = 'db.runCommand({ documents: [ { _id: 1, name: "abc123", status: "A" } ] })'
 
 - name: Create MongoDB user
   shell: |
