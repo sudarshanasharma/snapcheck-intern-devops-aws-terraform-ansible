@@ -23,6 +23,10 @@
   shell: |
    pip3 install pymongo
    
+- name: Insert data to 'test' db
+  shell: |
+      mongo --eval = 'db.runCommand({ insert: "test",documents: [ { _id: 1, name: "abc123", status: "A" } ] })'
+
 - name: Create MongoDB user
   shell: |
       mongo --eval='db.createUser({ user: "myUserAdmin", pwd: "mypassword" ,roles: [ "userAdmin", "readWrite"] })'
